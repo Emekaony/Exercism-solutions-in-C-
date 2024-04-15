@@ -1,19 +1,23 @@
-using System;
+using System.Text;
 
 static class LogLine
 {
     public static string Message(string logLine)
     {
-        throw new NotImplementedException("Please implement the (static) LogLine.Message() method");
+        return logLine.Split(": ")[1].Trim();
     }
 
     public static string LogLevel(string logLine)
     {
-        throw new NotImplementedException("Please implement the (static) LogLine.LogLevel() method");
+        int start = logLine.IndexOf('[');
+        int end = logLine.IndexOf(']');
+        return logLine.Substring(start + 1, end - 1).ToLower();
     }
 
     public static string Reformat(string logLine)
     {
-        throw new NotImplementedException("Please implement the (static) LogLine.Reformat() method");
+        StringBuilder sb = new(Message(logLine));
+        sb.AppendFormat(" ({0})", LogLevel(logLine));
+        return sb.ToString();
     }
 }
