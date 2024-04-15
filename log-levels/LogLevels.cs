@@ -11,7 +11,7 @@ static class LogLine
     {
         int start = logLine.IndexOf('[');
         int end = logLine.IndexOf(']');
-        return logLine.Substring(start + 1, end - 1).ToLower();
+        return logLine[(start + 1)..end].ToLower();
     }
 
     public static string Reformat(string logLine)
