@@ -6,7 +6,7 @@ public static class LogAnalysis
     public static string SubstringAfter(this string message, string delimiter)
     {
         int start = message.IndexOf(delimiter);
-        return message[(start + 1)..];
+        return message[(start + delimiter.Length)..];
     }
 
     // TODO: define the 'SubstringBetween()' extension method on the `string` type
@@ -14,7 +14,8 @@ public static class LogAnalysis
     {
         int start = message.IndexOf(first);
         int end = message.IndexOf(second);
-        return message[(start + 1)..end];
+        // string substring is weird: "emeka".IndexOf("e") == "emeka".IndexOf("eme")
+        return message[(start + first.Length)..end];
     }
 
     // TODO: define the 'Message()' extension method on the `string` type
