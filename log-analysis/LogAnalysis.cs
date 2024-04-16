@@ -12,21 +12,9 @@ public static class LogAnalysis
     // TODO: define the 'SubstringBetween()' extension method on the `string` type
     public static string SubstringBetween(this string message, string first, string second)
     {
-        // hope this works
-        StringBuilder sb = new();
-        for (int i = 0; i < message.Length; i++)
-        {
-            if (message[i].ToString() == first)
-            {
-                i++;
-                if (message[i].ToString() != second)
-                {
-                    sb.Append(message[i]);
-                }
-                else break;
-            }
-        }
-        return sb.ToString();
+        int start = message.IndexOf(first);
+        int end = message.IndexOf(second);
+        return message[(start + 1)..end];
     }
 
     // TODO: define the 'Message()' extension method on the `string` type
