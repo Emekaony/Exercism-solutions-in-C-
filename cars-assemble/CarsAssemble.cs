@@ -17,11 +17,12 @@ static class AssemblyLine
 
     public static double ProductionRatePerHour(int speed)
     {
-        throw new NotImplementedException("Please implement the (static) AssemblyLine.ProductionRatePerHour() method");
+        return SuccessRate(speed) * 221 * speed;
     }
 
     public static int WorkingItemsPerMinute(int speed)
     {
-        throw new NotImplementedException("Please implement the (static) AssemblyLine.WorkingItemsPerMinute() method");
+        int result = (int)ProductionRatePerHour(speed) / 60;
+        return result;
     }
 }
