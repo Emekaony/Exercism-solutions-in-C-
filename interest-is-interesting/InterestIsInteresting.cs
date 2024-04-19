@@ -30,8 +30,14 @@ static class SavingsAccount
 
     public static int YearsBeforeDesiredBalance(decimal balance, decimal targetBalance)
     {
-        double top = Math.Log10(decimal.ToDouble(targetBalance / balance));
-        double bottom = Math.Log10(1 + InterestRate(balance) * 1 / 100);
-        return (int)Math.Ceiling(top / bottom);
+        // compound interest formula would not work here because the interest changes
+        // based on the current balance!
+        int years = 0;
+        while (balance < targetBalance)
+        {
+            balance = AnnualBalanceUpdate(balance);
+            years++;
+        }
+        return years;
     }
 }
