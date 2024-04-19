@@ -31,8 +31,7 @@ class RemoteControlCar
 
     public void Drive()
     {
-        if (BatteryDrained()) { }
-        else
+        if (!BatteryDrained())
         {
             totalDistanceDriven += _speed; // increase distance driven by the speed of the car
             batteryLevel -= _batteryDrain; // decrement the battery level by the battery drain
