@@ -1,9 +1,8 @@
-using System;
-
 static class Badge
 {
     public static string Print(int? id, string name, string? department)
     {
-        return $"{"[" + id?.ToString() + "]" ?? ""} - {name} - {department?.ToUpper() ?? "OWNER"}";
+        string _id = id == null ? "" : $"[{id}] - ";
+        return $"{_id}{name} - {department?.ToUpper() ?? "OWNER"}";
     }
 }
