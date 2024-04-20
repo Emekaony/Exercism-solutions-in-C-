@@ -5,7 +5,6 @@ static class Appointment
     public static DateTime Schedule(string appointmentDateDescription)
     {
         DateTime dt = DateTime.Parse(appointmentDateDescription);
-        Console.WriteLine(dt.ToLongDateString());
         return dt;
     }
 
