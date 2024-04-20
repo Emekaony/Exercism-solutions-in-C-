@@ -28,6 +28,6 @@ static class Appointment
 
     public static DateTime AnniversaryDate()
     {
-        throw new NotImplementedException("Please implement the (static) Appointment.AnniversaryDate() method");
+        return new DateTime(DateTime.Now.Year, 9, 15);
     }
 }
