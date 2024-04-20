@@ -4,29 +4,17 @@ static class Appointment
 {
     public static DateTime Schedule(string appointmentDateDescription)
     {
-        DateTime dt = DateTime.Parse(appointmentDateDescription);
-        return dt;
+        return DateTime.Parse(appointmentDateDescription);
     }
 
-    public static bool HasPassed(DateTime appointmentDate)
-    {
-        // if < 0, then current instance is earlier hence in the past!
-        return appointmentDate.CompareTo(DateTime.Now) < 0;
-    }
+    public static bool HasPassed(DateTime appointmentDate) => appointmentDate.CompareTo(DateTime.Now) < 0;
 
-    public static bool IsAfternoonAppointment(DateTime appointmentDate)
-    {
-        return appointmentDate.Hour >= 12 && appointmentDate.Hour < 18;
-    }
+    public static bool IsAfternoonAppointment(DateTime appointmentDate) => appointmentDate.Hour >= 12 && appointmentDate.Hour < 18;
 
     public static string Description(DateTime appointmentDate)
     {
-        string message = $"You have an appointment on {DateTime.SpecifyKind(appointmentDate, DateTimeKind.Local)}.";
-        return message;
+        return $"You have an appointment on {DateTime.SpecifyKind(appointmentDate, DateTimeKind.Local)}.";
     }
 
-    public static DateTime AnniversaryDate()
-    {
-        return new DateTime(DateTime.Now.Year, 9, 15);
-    }
+    public static DateTime AnniversaryDate() => new DateTime(DateTime.Now.Year, 9, 15);
 }
