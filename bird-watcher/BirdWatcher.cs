@@ -33,12 +33,12 @@ class BirdCount
 
     public int CountForFirstDays(int numberOfDays)
     {
-        int count = 0;
-        for (int i = 0; i <= numberOfDays; i++)
+        int sum = 0;
+        for (int i = 0; i < numberOfDays; i++)
         {
-            count++;
+            sum += birdsPerDay[i];
         }
-        return count;
+        return sum;
     }
 
     public int BusyDays()
