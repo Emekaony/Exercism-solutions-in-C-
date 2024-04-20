@@ -11,7 +11,8 @@ static class Appointment
 
     public static bool HasPassed(DateTime appointmentDate)
     {
-        throw new NotImplementedException("Please implement the (static) Appointment.HasPassed() method");
+        // if < 0, then current instance is earlier hence in the past!
+        return appointmentDate.CompareTo(DateTime.Now) < 0;
     }
 
     public static bool IsAfternoonAppointment(DateTime appointmentDate)
