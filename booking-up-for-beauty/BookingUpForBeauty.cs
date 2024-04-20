@@ -22,7 +22,8 @@ static class Appointment
 
     public static string Description(DateTime appointmentDate)
     {
-        throw new NotImplementedException("Please implement the (static) Appointment.Description() method");
+        string message = $"You have an appointment on {DateTime.SpecifyKind(appointmentDate, DateTimeKind.Local)}.";
+        return message;
     }
 
     public static DateTime AnniversaryDate()
